@@ -1439,6 +1439,12 @@ MonoBehaviour:
     - name: no existe
       isSystemEvent: 0
       isGlobal: 0
+    - name: son iguales
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: no iguales
+      isSystemEvent: 0
+      isGlobal: 0
     globalTransitions: []
     variables:
       floatVariables: []
@@ -1841,7 +1847,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 234066283}
   m_TextComponent: {fileID: 1838047375}
   m_Placeholder: {fileID: 839378637}
@@ -2858,7 +2864,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 403354913}
   m_TextComponent: {fileID: 1119297794}
   m_Placeholder: {fileID: 489313660}
@@ -3510,7 +3516,7 @@ GameObject:
   - component: {fileID: 1119297795}
   - component: {fileID: 1119297794}
   m_Layer: 5
-  m_Name: Text
+  m_Name: txtPassword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3771,8 +3777,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 332
-        y: 118
+        x: 318
+        y: 109
         width: 100
         height: 32
       isBreakpoint: 0
@@ -3783,7 +3789,7 @@ MonoBehaviour:
           name: FINISHED
           isSystemEvent: 1
           isGlobal: 0
-        toState: Comprobar
+        toState: Comprobar Partida
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
@@ -3793,18 +3799,38 @@ MonoBehaviour:
         - HutongGames.PlayMaker.Actions.FindGameObject
         - HutongGames.PlayMaker.Actions.UiTextGetText
         - HutongGames.PlayMaker.Actions.StringAppend
+        - HutongGames.PlayMaker.Actions.FindGameObject
+        - HutongGames.PlayMaker.Actions.UiInputFieldGetText
+        - HutongGames.PlayMaker.Actions.FindGameObject
+        - HutongGames.PlayMaker.Actions.UiInputFieldGetText
         customNames:
         - 
         - 
         - 
-        actionEnabled: 010101
-        actionIsOpen: 010000
-        actionStartIndex: 000000000300000006000000
-        actionHashCodes: 786b3902599a9305a4b08a01
+        - 
+        - 
+        - 
+        - 
+        actionEnabled: 01010101010101
+        actionIsOpen: 00000000000001
+        actionStartIndex: 000000000300000006000000080000000b0000000e00000011000000
+        actionHashCodes: 786b3902599a9305a4b08a01786b3902599a9305786b3902599a9305
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
           name: input partida
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        - useVariable: 1
+          name: input usuario
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        - useVariable: 1
+          name: input password
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -3814,6 +3840,22 @@ MonoBehaviour:
           gameObject:
             useVariable: 1
             name: input partida
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: input usuario
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: input password
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -3855,6 +3897,42 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: .es3
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: InputUsuario
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: Untagged
+        - useVariable: 1
+          name: usuario escrito
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: InputPassword
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: Untagged
+        - useVariable: 1
+          name: password escrita
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 
         fsmObjectParams: []
         fsmVarParams: []
         fsmArrayParams: []
@@ -3868,12 +3946,12 @@ MonoBehaviour:
         fsmRectParams: []
         fsmQuaternionParams: []
         stringParams: []
-        byteData: 00
+        byteData: 000000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 1200000012000000130000001400000012000000010000001200000012000000
+        paramDataType: 1200000012000000130000001400000012000000010000001200000012000000120000001200000013000000140000001200000001000000120000001200000013000000140000001200000001000000
         paramName:
         - objectName
         - withTag
@@ -3883,16 +3961,28 @@ MonoBehaviour:
         - everyFrame
         - stringVariable
         - appendString
-        paramDataPos: 0000000001000000000000000000000002000000000000000300000004000000
-        paramByteDataSize: 0000000000000000000000000000000000000000010000000000000000000000
-    - name: Comprobar
+        - objectName
+        - withTag
+        - store
+        - gameObject
+        - text
+        - everyFrame
+        - objectName
+        - withTag
+        - store
+        - gameObject
+        - text
+        - everyFrame
+        paramDataPos: 0000000001000000000000000000000002000000000000000300000004000000050000000600000001000000010000000700000001000000080000000900000002000000020000000a00000002000000
+        paramByteDataSize: 0000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000001000000
+    - name: Comprobar Partida
       description: 
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 332
-        y: 169
-        width: 100
+        x: 297.67188
+        y: 179.61719
+        width: 142
         height: 48
       isBreakpoint: 0
       isSequence: 0
@@ -3902,7 +3992,7 @@ MonoBehaviour:
           name: FINISHED
           isSystemEvent: 1
           isGlobal: 0
-        toState: Mal
+        toState: Partida Mal
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
@@ -3911,7 +4001,7 @@ MonoBehaviour:
           name: ok
           isSystemEvent: 0
           isGlobal: 0
-        toState: Bien
+        toState: Partida Bien
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
@@ -3996,13 +4086,74 @@ MonoBehaviour:
         - everyFrame
         paramDataPos: 00000000000000000100000002000000030000000100000000000000010000000200000000000000
         paramByteDataSize: 00000000000000000000000000000000000000000000000000000000000000000000000001000000
-    - name: Bien
+    - name: Partida Bien
       description: 
-      colorIndex: 0
+      colorIndex: 3
       position:
         serializedVersion: 2
-        x: 507
-        y: 202
+        x: 495.0625
+        y: 211.30469
+        width: 101
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Comprobar Usuario
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames: []
+        customNames: []
+        actionEnabled: 
+        actionIsOpen: 
+        actionStartIndex: 
+        actionHashCodes: 
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams: []
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams: []
+        byteData: 
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 
+        paramName: []
+        paramDataPos: 
+        paramByteDataSize: 
+    - name: Partida Mal
+      description: 
+      colorIndex: 6
+      position:
+        serializedVersion: 2
+        x: 150.66406
+        y: 236.64062
         width: 100
         height: 16
       isBreakpoint: 0
@@ -4011,6 +4162,555 @@ MonoBehaviour:
       transitions: []
       actionData:
         actionNames:
+        - HutongGames.PlayMaker.Actions.UiTextSetText
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 00
+        actionStartIndex: 00000000
+        actionHashCodes: 09fbab04
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams:
+        - ownerOption: 1
+          gameObject:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 1758397119}
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: "Esa partida a\xFAn no existe. Intenta otra vez."
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams: []
+        byteData: 00
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 14000000120000001100000001000000
+        paramName:
+        - gameObject
+        - text
+        - resetOnExit
+        - everyFrame
+        paramDataPos: 00000000000000000000000000000000
+        paramByteDataSize: 00000000000000000000000001000000
+    - name: Comprobar Usuario
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 299.72656
+        y: 279.8828
+        width: 144
+        height: 48
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Usuario Mal
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      - fsmEvent:
+          name: ok
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Usuario Bien
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.StringCompare
+        - HutongGames.PlayMaker.Actions.ArrayContains
+        customNames:
+        - 
+        - 
+        actionEnabled: 0001
+        actionIsOpen: 0001
+        actionStartIndex: 0000000006000000
+        actionHashCodes: 0c0e550275f9ba05
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 1
+          name: usuario escrito
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 
+        - useVariable: 1
+          name: usuario de arreglo
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 
+        fsmObjectParams: []
+        fsmVarParams:
+        - variableName: usuario escrito
+          objectType: UnityEngine.Object
+          useVariable: 1
+          type: 4
+          floatValue: 0
+          intValue: 0
+          boolValue: 0
+          stringValue: 
+          vector4Value: {x: 0, y: 0, z: 0, w: 0}
+          objectReference: {fileID: 0}
+          arrayValue:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            type: -1
+            objectTypeName: 
+            floatValues: []
+            intValues: 
+            boolValues: 
+            stringValues: []
+            vector4Values: []
+            objectReferences: []
+        fsmArrayParams:
+        - useVariable: 1
+          name: Usuarios
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          type: 4
+          objectTypeName: UnityEngine.Object
+          floatValues: []
+          intValues: 
+          boolValues: 
+          stringValues:
+          - cero
+          - uno
+          - dos
+          - tres
+          - cuatro
+          - cinco
+          - seis
+          - siete
+          - ocho
+          - nueve
+          - diez
+          - once
+          vector4Values: []
+          objectReferences: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams:
+        - useVariable: 1
+          name: i
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmBoolParams:
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams:
+        - ok
+        - 
+        - ok
+        - FINISHED
+        byteData: 00
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 120000001200000017000000170000001100000001000000290000002700000010000000110000001700000017000000
+        paramName:
+        - stringVariable
+        - compareTo
+        - equalEvent
+        - notEqualEvent
+        - storeResult
+        - everyFrame
+        - array
+        - value
+        - index
+        - isContained
+        - isContainedEvent
+        - isNotContainedEvent
+        paramDataPos: 000000000100000000000000010000000000000000000000000000000000000000000000010000000200000003000000
+        paramByteDataSize: 000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000
+    - name: Usuario Bien
+      description: 
+      colorIndex: 3
+      position:
+        serializedVersion: 2
+        x: 497.34375
+        y: 310.5703
+        width: 103
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Comprobar Pass
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames: []
+        customNames: []
+        actionEnabled: 
+        actionIsOpen: 
+        actionStartIndex: 
+        actionHashCodes: 
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams: []
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams: []
+        byteData: 
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 
+        paramName: []
+        paramDataPos: 
+        paramByteDataSize: 
+    - name: Usuario Mal
+      description: 
+      colorIndex: 6
+      position:
+        serializedVersion: 2
+        x: 148.57031
+        y: 305.46875
+        width: 100
+        height: 16
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions: []
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.UiTextSetText
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: 09fbab04
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams:
+        - ownerOption: 1
+          gameObject:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 1758397119}
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: Ese usuario no existe. Intenta otra vez.
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams: []
+        byteData: 00
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 14000000120000001100000001000000
+        paramName:
+        - gameObject
+        - text
+        - resetOnExit
+        - everyFrame
+        paramDataPos: 00000000000000000000000000000000
+        paramByteDataSize: 00000000000000000000000001000000
+    - name: Comprobar Pass
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 309.84375
+        y: 382.71875
+        width: 128
+        height: 48
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: ok
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Password Bien
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Password Mal
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.ArrayGet
+        - HutongGames.PlayMaker.Actions.StringCompare
+        customNames:
+        - 
+        - 
+        actionEnabled: 0101
+        actionIsOpen: 0001
+        actionStartIndex: 0000000005000000
+        actionHashCodes: 6ba593010c0e5502
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 1
+          name: password escrita
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 
+        - useVariable: 1
+          name: pass en arreglo
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 
+        fsmObjectParams: []
+        fsmVarParams:
+        - variableName: pass en arreglo
+          objectType: UnityEngine.Object
+          useVariable: 1
+          type: 4
+          floatValue: 0
+          intValue: 0
+          boolValue: 0
+          stringValue: 
+          vector4Value: {x: 0, y: 0, z: 0, w: 0}
+          objectReference: {fileID: 0}
+          arrayValue:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            type: -1
+            objectTypeName: 
+            floatValues: []
+            intValues: 
+            boolValues: 
+            stringValues: []
+            vector4Values: []
+            objectReferences: []
+        fsmArrayParams:
+        - useVariable: 1
+          name: Passwords
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          type: 4
+          objectTypeName: UnityEngine.Object
+          floatValues: []
+          intValues: 
+          boolValues: 
+          stringValues:
+          - CERO
+          - UNO
+          - DOS
+          - TRES
+          - CUATRO
+          - CINCO
+          - SEIS
+          - SIETE
+          - OCHO
+          - NUEVE
+          - DIEZ
+          - ONCE
+          vector4Values: []
+          objectReferences: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams:
+        - useVariable: 1
+          name: i
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmBoolParams:
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams:
+        - 
+        - ok
+        - FINISHED
+        byteData: 0000
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 2900000010000000270000000100000017000000120000001200000017000000170000001100000001000000
+        paramName:
+        - array
+        - index
+        - storeValue
+        - everyFrame
+        - indexOutOfRange
+        - stringVariable
+        - compareTo
+        - equalEvent
+        - notEqualEvent
+        - storeResult
+        - everyFrame
+        paramDataPos: 0000000000000000000000000000000000000000000000000100000001000000020000000000000001000000
+        paramByteDataSize: 0000000000000000000000000100000000000000000000000000000000000000000000000000000001000000
+    - name: Password Bien
+      description: 
+      colorIndex: 3
+      position:
+        serializedVersion: 2
+        x: 494
+        y: 397.98438
+        width: 117
+        height: 16
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions: []
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.SetStringValue
+        - HutongGames.PlayMaker.Actions.SetStringValue
         - HutongGames.PlayMaker.Actions.SetStringValue
         - HutongGames.PlayMaker.Actions.ActivateGameObject
         - HutongGames.PlayMaker.Actions.ActivateGameObject
@@ -4018,10 +4718,12 @@ MonoBehaviour:
         - 
         - 
         - 
-        actionEnabled: 010101
-        actionIsOpen: 000000
-        actionStartIndex: 000000000300000008000000
-        actionHashCodes: c030f103b2cf1000b2cf1000
+        - 
+        - 
+        actionEnabled: 0101010000
+        actionIsOpen: 0000000000
+        actionStartIndex: 000000000300000006000000090000000e000000
+        actionHashCodes: c030f103c030f103c030f103b2cf1000b2cf1000
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -4053,9 +4755,33 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: 121FS.es3
+          value: 121AVA.es3
         - useVariable: 1
           name: partida escrita
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 
+        - useVariable: 1
+          name: Usuario
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 
+        - useVariable: 1
+          name: usuario escrito
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 
+        - useVariable: 1
+          name: Password
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 
+        - useVariable: 1
+          name: password escrita
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -4097,13 +4823,19 @@ MonoBehaviour:
         fsmRectParams: []
         fsmQuaternionParams: []
         stringParams: []
-        byteData: 0000000000
+        byteData: 00000000000000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 12000000120000000100000014000000110000001100000001000000010000001400000011000000110000000100000001000000
+        paramDataType: 12000000120000000100000012000000120000000100000012000000120000000100000014000000110000001100000001000000010000001400000011000000110000000100000001000000
         paramName:
+        - stringVariable
+        - stringValue
+        - everyFrame
+        - stringVariable
+        - stringValue
+        - everyFrame
         - stringVariable
         - stringValue
         - everyFrame
@@ -4117,16 +4849,16 @@ MonoBehaviour:
         - recursive
         - resetOnExit
         - everyFrame
-        paramDataPos: 00000000010000000000000000000000000000000100000001000000020000000100000002000000030000000300000004000000
-        paramByteDataSize: 00000000000000000100000000000000000000000000000001000000010000000000000000000000000000000100000001000000
-    - name: Mal
+        paramDataPos: 00000000010000000000000002000000030000000100000004000000050000000200000000000000000000000100000003000000040000000100000002000000030000000500000006000000
+        paramByteDataSize: 00000000000000000100000000000000000000000100000000000000000000000100000000000000000000000000000001000000010000000000000000000000000000000100000001000000
+    - name: Password Mal
       description: 
-      colorIndex: 0
+      colorIndex: 6
       position:
         serializedVersion: 2
-        x: 192
-        y: 225
-        width: 100
+        x: 151.96094
+        y: 427.98438
+        width: 113
         height: 16
       isBreakpoint: 0
       isSequence: 0
@@ -4134,13 +4866,13 @@ MonoBehaviour:
       transitions: []
       actionData:
         actionNames:
-        - HutongGames.PlayMaker.Actions.ActivateGameObject
+        - HutongGames.PlayMaker.Actions.UiTextSetText
         customNames:
         - 
         actionEnabled: 01
         actionIsOpen: 01
         actionStartIndex: 00000000
-        actionHashCodes: b2cf1000
+        actionHashCodes: 09fbab04
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -4158,7 +4890,13 @@ MonoBehaviour:
         fsmEventTargetParams: []
         fsmPropertyParams: []
         layoutOptionParams: []
-        fsmStringParams: []
+        fsmStringParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: "Contrase\xF1a incorrecta. Intenta otra vez."
         fsmObjectParams: []
         fsmVarParams: []
         fsmArrayParams: []
@@ -4171,12 +4909,6 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: 1
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
           value: 0
         fsmVector2Params: []
         fsmVector3Params: []
@@ -4184,20 +4916,19 @@ MonoBehaviour:
         fsmRectParams: []
         fsmQuaternionParams: []
         stringParams: []
-        byteData: 0000
+        byteData: 00
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 1400000011000000110000000100000001000000
+        paramDataType: 14000000120000001100000001000000
         paramName:
         - gameObject
-        - activate
-        - recursive
+        - text
         - resetOnExit
         - everyFrame
-        paramDataPos: 0000000000000000010000000000000001000000
-        paramByteDataSize: 0000000000000000000000000100000001000000
+        paramDataPos: 00000000000000000000000000000000
+        paramByteDataSize: 00000000000000000000000001000000
     events:
     - name: UI CLICK
       isSystemEvent: 1
@@ -4206,6 +4937,9 @@ MonoBehaviour:
       isSystemEvent: 1
       isGlobal: 0
     - name: ok
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: next
       isSystemEvent: 0
       isGlobal: 0
     globalTransitions:
@@ -4220,11 +4954,47 @@ MonoBehaviour:
       colorIndex: 0
     variables:
       floatVariables: []
-      intVariables: []
+      intVariables:
+      - useVariable: 1
+        name: i
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: 0
+      - useVariable: 1
+        name: limite
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: 0
       boolVariables: []
       stringVariables:
       - useVariable: 1
         name: partida escrita
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: 
+      - useVariable: 1
+        name: pass en arreglo
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: 
+      - useVariable: 1
+        name: password escrita
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: 
+      - useVariable: 1
+        name: usuario de arreglo
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: 
+      - useVariable: 1
+        name: usuario escrito
         tooltip: 
         showInInspector: 0
         networkSync: 0
@@ -4242,6 +5012,18 @@ MonoBehaviour:
         networkSync: 0
         value: {fileID: 0}
       - useVariable: 1
+        name: input password
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: {fileID: 0}
+      - useVariable: 1
+        name: input usuario
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: {fileID: 0}
+      - useVariable: 1
         name: mensaje error
         tooltip: 
         showInInspector: 0
@@ -4254,7 +5036,7 @@ MonoBehaviour:
       enumVariables: []
       categories:
       - 
-      variableCategoryIDs: 000000000000000000000000
+      variableCategoryIDs: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
     description: 
     docUrl: 
     showStateLabel: 0
@@ -4908,7 +5690,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1758397120
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4960,7 +5742,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Esa partida a\xFAn no existe. Intenta otra vez."
+  m_Text: 
 --- !u!222 &1758397122
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6009,7 +6791,7 @@ GameObject:
   - component: {fileID: 1838047376}
   - component: {fileID: 1838047375}
   m_Layer: 5
-  m_Name: Text
+  m_Name: txtUsuario
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
