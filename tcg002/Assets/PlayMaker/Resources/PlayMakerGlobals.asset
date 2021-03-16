@@ -63,6 +63,12 @@ MonoBehaviour:
       showInInspector: 0
       networkSync: 0
       value: 30
+    - useVariable: 1
+      name: Dracmas
+      tooltip: 
+      showInInspector: 0
+      networkSync: 0
+      value: 0
     boolVariables:
     - useVariable: 1
       name: Regenerador
@@ -82,7 +88,7 @@ MonoBehaviour:
       tooltip: 
       showInInspector: 0
       networkSync: 0
-      value: 121AVA.es3
+      value: 121PP.es3
     - useVariable: 1
       name: Password
       tooltip: 
@@ -94,7 +100,31 @@ MonoBehaviour:
       tooltip: 
       showInInspector: 0
       networkSync: 0
+      value: uno
+    - useVariable: 1
+      name: Faccion
+      tooltip: 
+      showInInspector: 0
+      networkSync: 0
       value: 
+    - useVariable: 1
+      name: Color
+      tooltip: 
+      showInInspector: 0
+      networkSync: 0
+      value: 
+    - useVariable: 1
+      name: linea final
+      tooltip: 
+      showInInspector: 0
+      networkSync: 0
+      value: 
+    - useVariable: 1
+      name: Consola
+      tooltip: 
+      showInInspector: 0
+      networkSync: 0
+      value: The Game Is On
     vector2Variables: []
     vector3Variables: []
     colorVariables: []
@@ -339,8 +369,33 @@ MonoBehaviour:
       - ONCE
       vector4Values: []
       objectReferences: []
+    - useVariable: 1
+      name: Facciones
+      tooltip: 
+      showInInspector: 0
+      networkSync: 0
+      type: 4
+      objectTypeName: UnityEngine.Object
+      floatValues: []
+      intValues: 
+      boolValues: 
+      stringValues:
+      - Purpura
+      - Purpura
+      - Purpura
+      - Verde
+      - Verde
+      - Verde
+      - Azul
+      - Azul
+      - Azul
+      - Amarillo
+      - Amarillo
+      - Amarillo
+      vector4Values: []
+      objectReferences: []
     enumVariables: []
     categories:
     - 
-    variableCategoryIDs: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    variableCategoryIDs: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   events: []
