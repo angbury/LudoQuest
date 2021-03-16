@@ -63,6 +63,12 @@ MonoBehaviour:
       showInInspector: 0
       networkSync: 0
       value: 30
+    - useVariable: 1
+      name: Dracmas
+      tooltip: 
+      showInInspector: 0
+      networkSync: 0
+      value: 0
     boolVariables:
     - useVariable: 1
       name: Regenerador
@@ -82,19 +88,43 @@ MonoBehaviour:
       tooltip: 
       showInInspector: 0
       networkSync: 0
-      value: 121AVA.es3
-    - useVariable: 1
-      name: Ususario
-      tooltip: 
-      showInInspector: 0
-      networkSync: 0
-      value: 
+      value: 121PP.es3
     - useVariable: 1
       name: Password
       tooltip: 
       showInInspector: 0
       networkSync: 0
       value: 
+    - useVariable: 1
+      name: Usuario
+      tooltip: 
+      showInInspector: 0
+      networkSync: 0
+      value: uno
+    - useVariable: 1
+      name: Faccion
+      tooltip: 
+      showInInspector: 0
+      networkSync: 0
+      value: 
+    - useVariable: 1
+      name: Color
+      tooltip: 
+      showInInspector: 0
+      networkSync: 0
+      value: 
+    - useVariable: 1
+      name: linea final
+      tooltip: 
+      showInInspector: 0
+      networkSync: 0
+      value: 
+    - useVariable: 1
+      name: Consola
+      tooltip: 
+      showInInspector: 0
+      networkSync: 0
+      value: The Game Is On
     vector2Variables: []
     vector3Variables: []
     colorVariables: []
@@ -289,8 +319,83 @@ MonoBehaviour:
       - {fileID: 21300000, guid: c96949dcf49124eadb506fae6f056103, type: 3}
       - {fileID: 21300000, guid: 522cefd2fb8204317ad18a5ba67fb852, type: 3}
       - {fileID: 21300000, guid: 8c85db7816bf84d3ba9030c6087d78f7, type: 3}
+    - useVariable: 1
+      name: Usuarios
+      tooltip: 
+      showInInspector: 0
+      networkSync: 0
+      type: 4
+      objectTypeName: UnityEngine.Object
+      floatValues: []
+      intValues: 
+      boolValues: 
+      stringValues:
+      - cero
+      - uno
+      - dos
+      - tres
+      - cuatro
+      - cinco
+      - seis
+      - siete
+      - ocho
+      - nueve
+      - diez
+      - once
+      vector4Values: []
+      objectReferences: []
+    - useVariable: 1
+      name: Passwords
+      tooltip: 
+      showInInspector: 0
+      networkSync: 0
+      type: 4
+      objectTypeName: UnityEngine.Object
+      floatValues: []
+      intValues: 
+      boolValues: 
+      stringValues:
+      - CERO
+      - UNO
+      - DOS
+      - TRES
+      - CUATRO
+      - CINCO
+      - SEIS
+      - SIETE
+      - OCHO
+      - NUEVE
+      - DIEZ
+      - ONCE
+      vector4Values: []
+      objectReferences: []
+    - useVariable: 1
+      name: Facciones
+      tooltip: 
+      showInInspector: 0
+      networkSync: 0
+      type: 4
+      objectTypeName: UnityEngine.Object
+      floatValues: []
+      intValues: 
+      boolValues: 
+      stringValues:
+      - Purpura
+      - Purpura
+      - Purpura
+      - Verde
+      - Verde
+      - Verde
+      - Azul
+      - Azul
+      - Azul
+      - Amarillo
+      - Amarillo
+      - Amarillo
+      vector4Values: []
+      objectReferences: []
     enumVariables: []
     categories:
     - 
-    variableCategoryIDs: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    variableCategoryIDs: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   events: []
