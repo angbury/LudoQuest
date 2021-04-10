@@ -94,7 +94,7 @@ MonoBehaviour:
       tooltip: 
       showInInspector: 0
       networkSync: 0
-      value: 121PP.es3
+      value: 121FS.es3
     - useVariable: 1
       name: Password
       tooltip: 
@@ -337,41 +337,41 @@ MonoBehaviour:
       boolValues: 
       stringValues:
       - uno
-      - AngelEmiliano
-      - CarolinaBuenrostro
-      - EstefaniaBruno
-      - JesusGabriel
-      - JavierAndres
-      - OscarFernando
-      - SauloAzael
       - AdrianDaniel
-      - AmeyalliGarcia
-      - AndreDuran
+      - AngelEmiliano
       - AngelSaid
-      - BrisaStephania
-      - CarlosDaniel
-      - ChristianGabriel
-      - CristobalUriel
-      - CristobalUriel
+      - ChristianG
       - EdgarRamos
-      - FernandaMosqueda
       - HaitaoHuang
-      - GuillermoJasso
-      - JesusAlberto
+      - JesusGabriel
+      - LuisAlan
+      - LuisFernando
+      - OscarFernando
+      - MiguelCastilla
+      - UrielEspinoza
+      - CarolinaBC
+      - AndreDuran
+      - BrisaStephania
+      - SauloAzael
+      - AmeyalliGR
+      - BrandonM
+      - FernandaMG
+      - JavierAndres
+      - PaolaAnaya
+      - GuillermoJ
+      - LourdesDGM
+      - SebastianRG
       - JesusRendon
+      - CarlosDaniel
+      - CristobalUriel
+      - DanielMO
+      - EstefaniaBS
+      - JesusAlberto
       - JonathanIan
       - JoseAngel
-      - LuisAlan
-      - LourdesDaniela
-      - LuisFernando
       - MarcoIvan
-      - MiguelCastilla
-      - PaolaAnaya
-      - RicardoParamo
-      - SebastianReyes
-      - UrielEspinoza
+      - RicardoPG
       - VictorIvan
-      - BrandonMartin
       vector4Values: []
       objectReferences: []
     - useVariable: 1
@@ -386,41 +386,41 @@ MonoBehaviour:
       boolValues: 
       stringValues:
       - uno
-      - pquw
-      - fzde
-      - mxvb
-      - lkgc
-      - znqf
-      - boor
-      - xiyx
-      - pcze
-      - gxly
-      - hjkp
-      - dnte
-      - snom
-      - micw
-      - tpvu
-      - xdyk
-      - viih
-      - jvpr
-      - pbtg
-      - csml
-      - ranv
-      - reyh
-      - xout
-      - vmrd
-      - ymql
-      - lszi
-      - dtbr
-      - dqyx
-      - xkvx
-      - bdbi
-      - kxoy
-      - taof
-      - lhpv
-      - hbiy
-      - gako
-      - cteq
+      - H704
+      - Z860
+      - P736
+      - T999
+      - F165
+      - Q231
+      - E642
+      - A420
+      - I159
+      - M456
+      - N350
+      - U528
+      - Z151
+      - E726
+      - O447
+      - S465
+      - P898
+      - R435
+      - K977
+      - M299
+      - X207
+      - O608
+      - X725
+      - G647
+      - Q802
+      - E137
+      - C224
+      - Y471
+      - K276
+      - N780
+      - I542
+      - V334
+      - B183
+      - D247
+      - W190
       vector4Values: []
       objectReferences: []
     - useVariable: 1
@@ -435,17 +435,41 @@ MonoBehaviour:
       boolValues: 
       stringValues:
       - Purpura
+      - Amarillo
+      - Amarillo
+      - Amarillo
+      - Amarillo
+      - Amarillo
+      - Amarillo
+      - Amarillo
+      - Amarillo
+      - Amarillo
+      - Azul
+      - Azul
+      - Azul
+      - Azul
+      - Azul
+      - Azul
+      - Azul
       - Purpura
       - Purpura
+      - Purpura
+      - Purpura
+      - Purpura
+      - Purpura
+      - Purpura
+      - Purpura
+      - Purpura
       - Verde
       - Verde
       - Verde
-      - Azul
-      - Azul
-      - Azul
-      - Amarillo
-      - Amarillo
-      - Amarillo
+      - Verde
+      - Verde
+      - Verde
+      - Verde
+      - Verde
+      - Verde
+      - Verde
       vector4Values: []
       objectReferences: []
     enumVariables: []
