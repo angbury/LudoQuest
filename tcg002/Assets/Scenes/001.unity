@@ -3742,7 +3742,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 41.9
+  m_fontSize: 41.95
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4482,7 +4482,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 41.9
+  m_fontSize: 41.95
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5209,7 +5209,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 41.9
+  m_fontSize: 41.95
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -10195,13 +10195,15 @@ MonoBehaviour:
         actionNames:
         - HutongGames.PlayMaker.Actions.GetSystemDateTime
         - HutongGames.PlayMaker.Actions.BuildString
+        - HutongGames.PlayMaker.Actions.SetStringValue
         customNames:
         - 
         - 
-        actionEnabled: 0101
-        actionIsOpen: 0000
-        actionStartIndex: 0000000003000000
-        actionHashCodes: c030f1037370ae05
+        - 
+        actionEnabled: 010100
+        actionIsOpen: 000000
+        actionStartIndex: 000000000300000012000000
+        actionHashCodes: c030f1037370ae05c030f103
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams: []
@@ -10296,6 +10298,18 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: 
+        - useVariable: 1
+          name: nueva
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: ---
         fsmObjectParams: []
         fsmVarParams: []
         fsmArrayParams: []
@@ -10315,13 +10329,13 @@ MonoBehaviour:
         fsmRectParams: []
         fsmQuaternionParams: []
         stringParams: []
-        byteData: 0000
+        byteData: 000000
         arrayParamSizes: 0a000000
         arrayParamTypes:
         - HutongGames.PlayMaker.FsmString
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 1200000012000000010000000c0000001200000012000000120000001200000012000000120000001200000012000000120000001200000012000000110000001200000001000000
+        paramDataType: 1200000012000000010000000c0000001200000012000000120000001200000012000000120000001200000012000000120000001200000012000000110000001200000001000000120000001200000001000000
         paramName:
         - storeString
         - format
@@ -10341,8 +10355,11 @@ MonoBehaviour:
         - addToEnd
         - storeResult
         - everyFrame
-        paramDataPos: 0000000001000000000000000000000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c000000000000000d00000001000000
-        paramByteDataSize: 000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000
+        - stringVariable
+        - stringValue
+        - everyFrame
+        paramDataPos: 0000000001000000000000000000000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c000000000000000d000000010000000e0000000f00000002000000
+        paramByteDataSize: 000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000001000000
     events:
     - name: UI CLICK
       isSystemEvent: 1
@@ -15573,7 +15590,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 580025052}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.43725383
+  m_Size: 0.43739116
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -16560,7 +16577,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 41.9
+  m_fontSize: 41.95
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -17155,7 +17172,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 70.3
+  m_fontSize: 70.4
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
