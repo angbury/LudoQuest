@@ -3742,7 +3742,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 41.95
+  m_fontSize: 41.9
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4482,7 +4482,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 41.95
+  m_fontSize: 41.9
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5209,7 +5209,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 41.95
+  m_fontSize: 41.9
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -14565,9 +14565,9 @@ MonoBehaviour:
     dataVersion: 2
     usedInTemplate: {fileID: 0}
     name: FSM
-    startState: Get Set
+    startState: Get Faccion
     states:
-    - name: Get Set
+    - name: Get Faccion
       description: 
       colorIndex: 0
       position:
@@ -14598,7 +14598,7 @@ MonoBehaviour:
         - 
         - 
         - 
-        actionEnabled: 010101
+        actionEnabled: 010100
         actionIsOpen: 000000
         actionStartIndex: 00000000060000000b000000
         actionHashCodes: 75f9ba056ba5930109fbab04
@@ -14688,18 +14688,42 @@ MonoBehaviour:
           intValues: 
           boolValues: 
           stringValues:
-          - cero
           - uno
-          - dos
-          - tres
-          - cuatro
-          - cinco
-          - seis
-          - siete
-          - ocho
-          - nueve
-          - diez
-          - once
+          - AdrianDaniel
+          - AngelEmiliano
+          - AngelSaid
+          - ChristianG
+          - EdgarRamos
+          - HaitaoHuang
+          - JesusGabriel
+          - LuisAlan
+          - LuisFernando
+          - OscarFernando
+          - MiguelCastilla
+          - UrielEspinoza
+          - CarolinaBC
+          - AndreDuran
+          - BrisaStephania
+          - SauloAzael
+          - AmeyalliGR
+          - BrandonM
+          - FernandaMG
+          - JavierAndres
+          - PaolaAnaya
+          - GuillermoJ
+          - LourdesDGM
+          - SebastianRG
+          - JesusRendon
+          - CarlosDaniel
+          - CristobalUriel
+          - DanielMO
+          - EstefaniaBS
+          - JesusAlberto
+          - JonathanIan
+          - JoseAngel
+          - MarcoIvan
+          - RicardoPG
+          - VictorIvan
           vector4Values: []
           objectReferences: []
         - useVariable: 1
@@ -14714,17 +14738,41 @@ MonoBehaviour:
           boolValues: 
           stringValues:
           - Purpura
+          - Amarillo
+          - Amarillo
+          - Amarillo
+          - Amarillo
+          - Amarillo
+          - Amarillo
+          - Amarillo
+          - Amarillo
+          - Amarillo
+          - Azul
+          - Azul
+          - Azul
+          - Azul
+          - Azul
+          - Azul
+          - Azul
           - Purpura
           - Purpura
+          - Purpura
+          - Purpura
+          - Purpura
+          - Purpura
+          - Purpura
+          - Purpura
+          - Purpura
           - Verde
           - Verde
           - Verde
-          - Azul
-          - Azul
-          - Azul
-          - Amarillo
-          - Amarillo
-          - Amarillo
+          - Verde
+          - Verde
+          - Verde
+          - Verde
+          - Verde
+          - Verde
+          - Verde
           vector4Values: []
           objectReferences: []
         fsmEnumParams: []
@@ -14931,21 +14979,30 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 238.19531
-        y: 150.19531
+        x: 239.19531
+        y: 129.19531
         width: 100
-        height: 16
+        height: 32
       isBreakpoint: 0
       isSequence: 0
       hideUnused: 0
-      transitions: []
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Set Faccion
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
       actionData:
         actionNames:
         - HutongGames.PlayMaker.Actions.SetStringValue
         customNames:
         - 
         actionEnabled: 01
-        actionIsOpen: 00
+        actionIsOpen: 01
         actionStartIndex: 00000000
         actionHashCodes: c030f103
         unityObjectParams: []
@@ -15000,14 +15057,23 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 235.6875
-        y: 183.44531
+        x: 239
+        y: 170
         width: 100
-        height: 16
+        height: 32
       isBreakpoint: 0
       isSequence: 0
       hideUnused: 0
-      transitions: []
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Set Faccion
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
       actionData:
         actionNames:
         - HutongGames.PlayMaker.Actions.SetStringValue
@@ -15038,7 +15104,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: '#00E27C'
+          value: <color=#00E27C>
         fsmObjectParams: []
         fsmVarParams: []
         fsmArrayParams: []
@@ -15069,14 +15135,23 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 236.29688
-        y: 210.96875
+        x: 239.29688
+        y: 211.96875
         width: 100
-        height: 16
+        height: 32
       isBreakpoint: 0
       isSequence: 0
       hideUnused: 0
-      transitions: []
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Set Faccion
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
       actionData:
         actionNames:
         - HutongGames.PlayMaker.Actions.SetStringValue
@@ -15086,7 +15161,7 @@ MonoBehaviour:
         - 
         - 
         - 
-        actionEnabled: 010101
+        actionEnabled: 010000
         actionIsOpen: 000000
         actionStartIndex: 00000000030000000b000000
         actionHashCodes: c030f1037370ae0509fbab04
@@ -15211,14 +15286,23 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 236.3125
-        y: 240.94531
+        x: 238.3125
+        y: 252.95312
         width: 100
-        height: 16
+        height: 32
       isBreakpoint: 0
       isSequence: 0
       hideUnused: 0
-      transitions: []
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Set Faccion
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
       actionData:
         actionNames:
         - HutongGames.PlayMaker.Actions.SetStringValue
@@ -15249,7 +15333,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: '#FFE177'
+          value: <color=#FFE177>
         fsmObjectParams: []
         fsmVarParams: []
         fsmArrayParams: []
@@ -15275,13 +15359,13 @@ MonoBehaviour:
         - everyFrame
         paramDataPos: 000000000100000000000000
         paramByteDataSize: 000000000000000001000000
-    - name: Build String
+    - name: Set Faccion
       description: 
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 370.96875
-        y: 149.52344
+        x: 411
+        y: 197
         width: 100
         height: 16
       isBreakpoint: 0
@@ -15296,20 +15380,20 @@ MonoBehaviour:
         - 
         - 
         actionEnabled: 0101
-        actionIsOpen: 0100
-        actionStartIndex: 0000000009000000
+        actionIsOpen: 0000
+        actionStartIndex: 0000000008000000
         actionHashCodes: 7370ae0509fbab04
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
-        - ownerOption: 1
+        - ownerOption: 0
           gameObject:
             useVariable: 0
             name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
-            value: {fileID: 499101836}
+            value: {fileID: 0}
         animationCurveParams: []
         functionCallParams: []
         fsmTemplateControlParams: []
@@ -15323,20 +15407,8 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: 
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: "ya qued\xF3"
         - useVariable: 1
-          name: linea final
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        - useVariable: 1
-          name: Consola
+          name: Faccion
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -15346,15 +15418,21 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: 
-        - useVariable: 1
-          name: nuevo
+          value: </color>
+        - useVariable: 0
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
           value: 
         - useVariable: 1
-          name: nuevo
+          name: cadena faccion
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 
+        - useVariable: 1
+          name: cadena faccion
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -15385,15 +15463,14 @@ MonoBehaviour:
         fsmQuaternionParams: []
         stringParams: []
         byteData: 0000
-        arrayParamSizes: 04000000
+        arrayParamSizes: 03000000
         arrayParamTypes:
         - HutongGames.PlayMaker.FsmString
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 0c000000120000001200000012000000120000001200000011000000120000000100000014000000120000001100000001000000
+        paramDataType: 0c0000001200000012000000120000001200000011000000120000000100000014000000120000001100000001000000
         paramName:
         - stringParts
-        - 
         - 
         - 
         - 
@@ -15405,8 +15482,8 @@ MonoBehaviour:
         - text
         - resetOnExit
         - everyFrame
-        paramDataPos: 00000000000000000100000002000000030000000400000000000000050000000000000000000000060000000100000001000000
-        paramByteDataSize: 00000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000001000000
+        paramDataPos: 000000000000000001000000020000000300000000000000040000000000000000000000050000000100000001000000
+        paramByteDataSize: 000000000000000000000000000000000000000000000000000000000100000000000000000000000000000001000000
     events:
     - name: FINISHED
       isSystemEvent: 1
@@ -15447,6 +15524,12 @@ MonoBehaviour:
         showInInspector: 0
         networkSync: 0
         value: 
+      - useVariable: 1
+        name: cadena faccion
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: 
       vector2Variables: []
       vector3Variables: []
       colorVariables: []
@@ -15460,7 +15543,7 @@ MonoBehaviour:
       enumVariables: []
       categories:
       - 
-      variableCategoryIDs: 000000000000000000000000
+      variableCategoryIDs: 00000000000000000000000000000000
     description: 
     docUrl: 
     showStateLabel: 0
@@ -15590,7 +15673,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 580025052}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.43739116
+  m_Size: 0.43719882
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -16577,7 +16660,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 41.95
+  m_fontSize: 41.9
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
