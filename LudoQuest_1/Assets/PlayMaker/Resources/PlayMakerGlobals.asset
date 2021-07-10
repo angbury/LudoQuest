@@ -1,0 +1,230 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 42938266, guid: e743331561ef77147ae48cda9bcb8209, type: 3}
+  m_Name: PlayMakerGlobals
+  m_EditorClassIdentifier: 
+  variables:
+    floatVariables: []
+    intVariables: []
+    boolVariables: []
+    stringVariables: []
+    vector2Variables: []
+    vector3Variables: []
+    colorVariables: []
+    rectVariables: []
+    quaternionVariables: []
+    gameObjectVariables: []
+    objectVariables: []
+    materialVariables: []
+    textureVariables: []
+    arrayVariables:
+    - useVariable: 1
+      name: Nombres
+      tooltip: 
+      showInInspector: 0
+      networkSync: 0
+      type: 4
+      objectTypeName: UnityEngine.Object
+      floatValues: []
+      intValues: 
+      boolValues: 
+      stringValues:
+      - Al deleite de Dionisio
+      - Dioscuros
+      - Ventura de la Cornucopia
+      - Ataque de la Hidra
+      - Gracia de Atenea
+      - El rayo de Zeus
+      - "Agrupaci\xF3n Amazona"
+      - "Encrucijada de H\xE9cate"
+      - El destino por las Moiras
+      - El canto de la sirena
+      - Artemisa, la cazadora
+      - La Venganza de Cronos
+      - Medusa, la gorgona
+      - Encanto de Afrodita
+      - "El invencible le\xF3n de Nemea"
+      - "Argos, el guardi\xE1n"
+      - Al cuidado de Cerbero
+      - "Hades, se\xF1or del Inframundo"
+      - Del agrado de Hera
+      - El tridente de Neptuno
+      - El fuego de Prometeo
+      - El vuelo de Pegaso
+      - "Hermes, el ladr\xF3n"
+      vector4Values: []
+      objectReferences: []
+    - useVariable: 1
+      name: Efectos
+      tooltip: 
+      showInInspector: 0
+      networkSync: 0
+      type: 4
+      objectTypeName: UnityEngine.Object
+      floatValues: []
+      intValues: 
+      boolValues: 
+      stringValues:
+      - Si respondes bien obtienes +1(P,M) de recompensa.
+      - Si respondes bien obtienes +2(P,M) de recompensa.
+      - Si respondes bien obtienes +4(P,M) de recompensa.
+      - Si respondes bien obtienes x2(P,M) de recompensa.
+      - "Si uno o varios jugadores han fallado y t\xFA no, tu facci\xF3n obtiene
+        +2(M) de cada facci\xF3n superada."
+      - Si te han robado en esta partida y respondes bien obten x3(P,M) de recompensa.
+      - "Si no tienes la respuesta otro miembro de tu facci\xF3n puede responder."
+      - "Si no tienes la respuesta elige otra facci\xF3n para robo de respuesta."
+      - Si no tienes la respuesta elige a cualquier jugador para robo de respuesta.
+      - "Si no tienes la respuesta elige otra facci\xF3n para que responda y dividir
+        la recompensa."
+      - "Si no tienes la respuesta elige una facci\xF3n que no pueda robar la respuesta."
+      - Anula el efecto de la carta anterior.
+      - Anula cualquier efecto activo.
+      - Anula todos los efectos hasta el final del turno.
+      - Anula todos los efectos de cartas Conquista el resto de la partida.
+      - "Anula todos los efectos de cartas Evasi\xF3n el resto de la partida."
+      - Anula todos los efectos de cartas Astucia el resto de la partida.
+      - Roba 1(P,M) de la recompensa anterior.
+      - Roba 2(P) de la recompensa anterior.
+      - Roba 3(P) de la recompensa anterior.
+      - Roba toda la recompensa anterior.
+      - Roba 1(P,M) de la recompensa siguiente.
+      - "Si uno o varios jugadores han fallado y t\xFA no, tu facci\xF3n roba 1(P)
+        de cada facci\xF3n superada."
+      vector4Values: []
+      objectReferences: []
+    - useVariable: 1
+      name: Costos
+      tooltip: 
+      showInInspector: 0
+      networkSync: 0
+      type: 1
+      objectTypeName: UnityEngine.Object
+      floatValues: []
+      intValues: 0200000003000000040000000300000003000000030000000200000003000000040000000200000002000000020000000300000003000000040000000400000004000000020000000300000004000000040000000200000002000000
+      boolValues: 
+      stringValues: []
+      vector4Values: []
+      objectReferences: []
+    - useVariable: 1
+      name: Tipos
+      tooltip: 
+      showInInspector: 0
+      networkSync: 0
+      type: 4
+      objectTypeName: UnityEngine.Object
+      floatValues: []
+      intValues: 
+      boolValues: 
+      stringValues:
+      - Conquista
+      - Conquista
+      - Conquista
+      - Conquista
+      - Conquista
+      - Conquista
+      - "Evasi\xF3n"
+      - "Evasi\xF3n"
+      - "Evasi\xF3n"
+      - "Evasi\xF3n"
+      - "Evasi\xF3n"
+      - "Anulaci\xF3n"
+      - "Anulaci\xF3n"
+      - "Anulaci\xF3n"
+      - "Anulaci\xF3n"
+      - "Anulaci\xF3n"
+      - "Anulaci\xF3n"
+      - Astucia
+      - Astucia
+      - Astucia
+      - Astucia
+      - Astucia
+      - Astucia
+      vector4Values: []
+      objectReferences: []
+    - useVariable: 1
+      name: Rarezas
+      tooltip: 
+      showInInspector: 0
+      networkSync: 0
+      type: 4
+      objectTypeName: UnityEngine.Object
+      floatValues: []
+      intValues: 
+      boolValues: 
+      stringValues:
+      - Heroica
+      - Heroica
+      - "Tit\xE1nica"
+      - "Ol\xEDmpica"
+      - Heroica
+      - "Ol\xEDmpica"
+      - Heroica
+      - "Ol\xEDmpica"
+      - "Tit\xE1nica"
+      - Heroica
+      - Heroica
+      - Heroica
+      - Heroica
+      - "Ol\xEDmpica"
+      - "Ol\xEDmpica"
+      - "Ol\xEDmpica"
+      - "Ol\xEDmpica"
+      - Heroica
+      - "Ol\xEDmpica"
+      - "Ol\xEDmpica"
+      - "Tit\xE1nica"
+      - Heroica
+      - Heroica
+      vector4Values: []
+      objectReferences: []
+    - useVariable: 1
+      name: Ilustraciones
+      tooltip: 
+      showInInspector: 0
+      networkSync: 0
+      type: 12
+      objectTypeName: UnityEngine.Sprite
+      floatValues: []
+      intValues: 
+      boolValues: 
+      stringValues: []
+      vector4Values: []
+      objectReferences:
+      - {fileID: 21300000, guid: 7ec7e7c4680deea4aa12bafcb499f926, type: 3}
+      - {fileID: 21300000, guid: 533c65a241f4b6e48bfb136b2ef13f6e, type: 3}
+      - {fileID: 21300000, guid: 9487518f43ea1694baf77eacdaa4f657, type: 3}
+      - {fileID: 21300000, guid: 6e706ee6ca7ff4c4081e75ad5c905797, type: 3}
+      - {fileID: 21300000, guid: ae19455341635cd449bbfc430f4d45e8, type: 3}
+      - {fileID: 21300000, guid: 457d8f2784469b445bbf6b55dfae377f, type: 3}
+      - {fileID: 21300000, guid: 0a71fe6f6899aeb4680f0de79f5209e6, type: 3}
+      - {fileID: 21300000, guid: 4feeaace79be06b429f1e1000a96b7a2, type: 3}
+      - {fileID: 21300000, guid: d43e72518cf12ed4184ed8a2dc1b61bf, type: 3}
+      - {fileID: 21300000, guid: 139b09bfc13393040a3b4fa1ebf7134e, type: 3}
+      - {fileID: 21300000, guid: 455d0fa34d940194ea790e8dc623838e, type: 3}
+      - {fileID: 21300000, guid: a40c295fd824aa14f9b6cef2760bcdf6, type: 3}
+      - {fileID: 21300000, guid: c68e04e96c5593b4bbdec556c4c690a4, type: 3}
+      - {fileID: 21300000, guid: 1203507edefd4c54682da9bda286a4d2, type: 3}
+      - {fileID: 21300000, guid: 86be918af5fb5a145b806f3cdc0ee0e5, type: 3}
+      - {fileID: 21300000, guid: 23105edafd0601c488c1ab22fbcbc84d, type: 3}
+      - {fileID: 21300000, guid: 7accb68235df0c040b2a732798425910, type: 3}
+      - {fileID: 21300000, guid: bed7d1c0e4c707a4497f534dfa75684d, type: 3}
+      - {fileID: 21300000, guid: e153db6ab30c79540b68d98a26f8ab5b, type: 3}
+      - {fileID: 21300000, guid: b254522810121a74bb56342df9e4ac8a, type: 3}
+      - {fileID: 21300000, guid: 330c85dd5cdfd064ebc2b41971e10dc1, type: 3}
+      - {fileID: 21300000, guid: 8a19a04a8f0cea842b740d4e8b30cf7d, type: 3}
+      - {fileID: 21300000, guid: a7c68333fecdc0a4e9cd65fefb1f590c, type: 3}
+    enumVariables: []
+    categories:
+    - 
+    variableCategoryIDs: 000000000000000000000000000000000000000000000000
+  events: []
