@@ -14,9 +14,93 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   variables:
     floatVariables: []
-    intVariables: []
-    boolVariables: []
-    stringVariables: []
+    intVariables:
+    - useVariable: 1
+      name: Puntos morado
+      tooltip: 
+      showInInspector: 0
+      networkSync: 0
+      value: 1
+    - useVariable: 1
+      name: Puntos verde
+      tooltip: 
+      showInInspector: 0
+      networkSync: 0
+      value: 6
+    - useVariable: 1
+      name: Puntos azul
+      tooltip: 
+      showInInspector: 0
+      networkSync: 0
+      value: 7
+    - useVariable: 1
+      name: Puntos amarillo
+      tooltip: 
+      showInInspector: 0
+      networkSync: 0
+      value: 5
+    - useVariable: 1
+      name: Dracmas
+      tooltip: 
+      showInInspector: 0
+      networkSync: 0
+      value: 3
+    - useVariable: 1
+      name: Carta1
+      tooltip: 
+      showInInspector: 0
+      networkSync: 0
+      value: 10
+    - useVariable: 1
+      name: Carta2
+      tooltip: 
+      showInInspector: 0
+      networkSync: 0
+      value: 5
+    - useVariable: 1
+      name: Carta3
+      tooltip: 
+      showInInspector: 0
+      networkSync: 0
+      value: 1
+    - useVariable: 1
+      name: Carta4
+      tooltip: 
+      showInInspector: 0
+      networkSync: 0
+      value: 16
+    - useVariable: 1
+      name: indice seleccionado
+      tooltip: 
+      showInInspector: 0
+      networkSync: 0
+      value: 0
+    boolVariables:
+    - useVariable: 1
+      name: Refresh
+      tooltip: 
+      showInInspector: 0
+      networkSync: 0
+      value: 0
+    stringVariables:
+    - useVariable: 1
+      name: Faccion
+      tooltip: 
+      showInInspector: 0
+      networkSync: 0
+      value: Verde
+    - useVariable: 1
+      name: Nombre
+      tooltip: 
+      showInInspector: 0
+      networkSync: 0
+      value: Paola
+    - useVariable: 1
+      name: Mensajes
+      tooltip: 
+      showInInspector: 0
+      networkSync: 0
+      value: 
     vector2Variables: []
     vector3Variables: []
     colorVariables: []
@@ -226,5 +310,5 @@ MonoBehaviour:
     enumVariables: []
     categories:
     - 
-    variableCategoryIDs: 000000000000000000000000000000000000000000000000
+    variableCategoryIDs: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   events: []
