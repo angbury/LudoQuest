@@ -204,6 +204,7 @@ namespace ES3PlayMaker
         public FsmString key;
         [Tooltip("The value we want to save.")]
         [UIHint(UIHint.Variable)]
+        [HideTypeFilter]
         public FsmVar value;
 
         public override void OnReset()
@@ -267,7 +268,7 @@ namespace ES3PlayMaker
         public override void Enter()
         {
             if (useBase64Encoding.Value)
-                ES3.SaveRaw(System.Convert.FromBase64String(str.Value) + (appendNewline.Value ? "\n" : ""), GetSettings());
+                ES3.SaveRaw(System.Convert.FromBase64String(str.Value + (appendNewline.Value ? "\n" : "")), GetSettings());
             else
                 ES3.SaveRaw(str.Value + (appendNewline.Value ? "\n" : ""), GetSettings());
         }
@@ -309,16 +310,19 @@ namespace ES3PlayMaker
         [Tooltip("The Texture2D we want to save as an image.")]
         [ObjectType(typeof(Texture2D))]
         public FsmTexture texture2D;
+        [Tooltip("The quality of the image when saving JPGs, from 1 to 100. Default is 75.")]
+        public FsmInt quality;
 
         public override void OnReset()
         {
             imagePath = "image.png";
             texture2D = null;
+            quality = 75;
         }
 
         public override void Enter()
         {
-            ES3.SaveImage((Texture2D)texture2D.Value, imagePath.Value, GetSettings());
+            ES3.SaveImage((Texture2D)texture2D.Value, quality.Value, imagePath.Value, GetSettings());
         }
     }
 
@@ -334,9 +338,11 @@ namespace ES3PlayMaker
         public FsmString key;
         [Tooltip("The variable we want to use to store our loaded data.")]
         [UIHint(UIHint.Variable)]
+        [HideTypeFilter]
         public FsmVar value;
         [Tooltip("Optional: A value to return if the key does not exist.")]
         [UIHint(UIHint.Variable)]
+        [HideTypeFilter]
         public FsmVar defaultValue;
 
         public override void OnReset()
@@ -378,6 +384,7 @@ namespace ES3PlayMaker
         [Tooltip("The object we want to load our data into.")]
         [RequiredField]
         [UIHint(UIHint.Variable)]
+        [HideTypeFilter]
         public FsmVar value;
 
         public override void OnReset()
@@ -890,6 +897,7 @@ namespace ES3PlayMaker
 
         [Tooltip("The value we want to save.")]
         [UIHint(UIHint.Variable)]
+        [HideTypeFilter]
         public FsmVar value;
 
         public override void OnReset()
@@ -915,6 +923,7 @@ namespace ES3PlayMaker
 
         [Tooltip("The value we want to save.")]
         [UIHint(UIHint.Variable)]
+        [HideTypeFilter]
         public FsmVar value;
 
         public override void OnReset()
@@ -1023,6 +1032,7 @@ namespace ES3PlayMaker
         public FsmString key;
         [Tooltip("The value we want to save.")]
         [UIHint(UIHint.Variable)]
+        [HideTypeFilter]
         public FsmVar value;
 
         public override void OnReset()
@@ -1046,9 +1056,11 @@ namespace ES3PlayMaker
         public FsmString key;
         [Tooltip("The variable we want to use to store our loaded data.")]
         [UIHint(UIHint.Variable)]
+        [HideTypeFilter]
         public FsmVar value;
         [Tooltip("Optional: A value to return if the key does not exist.")]
         [UIHint(UIHint.Variable)]
+        [HideTypeFilter]
         public FsmVar defaultValue;
 
         public override void OnReset()
@@ -1076,6 +1088,7 @@ namespace ES3PlayMaker
         public FsmString key;
         [Tooltip("The variable we want to load our data into.")]
         [UIHint(UIHint.Variable)]
+        [HideTypeFilter]
         public FsmVar value;
 
         public override void OnReset()

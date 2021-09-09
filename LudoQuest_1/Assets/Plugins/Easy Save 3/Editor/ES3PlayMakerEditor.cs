@@ -121,7 +121,7 @@ namespace ES3PlayMaker
 		public override bool OnGUI()
 		{
 			EditField("key");
-			FsmVarField("value");
+			EditField("value");
 
 			base.OnGUI();
 
@@ -193,6 +193,7 @@ namespace ES3PlayMaker
 		{
 			EditField("imagePath");
 			EditField("texture2D");
+            EditField("quality");
 		}
 	}
 
@@ -206,7 +207,7 @@ namespace ES3PlayMaker
 		public override void DrawGUI()
 		{
 			EditorGUILayout.Space();
-			FsmVarField("defaultValue");
+			EditField("defaultValue");
 		}
 	}
 
@@ -717,7 +718,7 @@ namespace ES3PlayMaker
 			EditField("fsmES3Spreadsheet");
 			EditField("col");
 			EditField("row");
-            FsmVarField("value");
+            EditField("value");
         }
 	}
 
@@ -729,7 +730,7 @@ namespace ES3PlayMaker
 			EditField("fsmES3Spreadsheet");
 			EditField("col");
 			EditField("row");
-			FsmVarField("value");
+			EditField("value");
 		}
 	}
 

@@ -50,8 +50,8 @@ public class ES3AutoSaveMgr : MonoBehaviour
         if (autoSaves == null || autoSaves.Count == 0)
             return;
 
-            // If we're using caching and we've not already cached this file, cache it.
-            if (settings.location == ES3.Location.Cache && !ES3.FileExists(settings))
+        // If we're using caching and we've not already cached this file, cache it.
+        if (settings.location == ES3.Location.Cache && !ES3.FileExists(settings))
             ES3.CacheFile(settings);
 
         if (autoSaves == null || autoSaves.Count == 0)
@@ -74,9 +74,13 @@ public class ES3AutoSaveMgr : MonoBehaviour
 
 	public void Load()
 	{
-        // If we're using caching and we've not already cached this file, cache it.
-        if (settings.location == ES3.Location.Cache && !ES3.FileExists(settings))
-            ES3.CacheFile(settings);
+        try
+        {
+            // If we're using caching and we've not already cached this file, cache it.
+            if (settings.location == ES3.Location.Cache && !ES3.FileExists(settings))
+                ES3.CacheFile(settings);
+        }
+        catch { }
 
         ES3.Load<GameObject[]>(key, new GameObject[0], settings);
 	}

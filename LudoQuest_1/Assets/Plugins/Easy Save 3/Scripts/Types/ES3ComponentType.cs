@@ -94,7 +94,10 @@ namespace ES3Types
                     break;
                 }
             }
-            ReadComponent<T>(reader, instance);
+
+            if(instance != null)
+                ReadComponent<T>(reader, instance);
+
             return instance;
         }
 

@@ -1,3 +1,51 @@
+3.3.2f6
+- ES3Spreadsheet now correctly serializes object types into a CSV file.
+- Resolved issue where an object[] containing primitive types could not be loaded in some situations.
+- Worked around issue where PlayMaker wouldn't initialize variable before it's value was reset.
+- Created a workaround for some situations where Unity creates new instances of ScriptableObjects in Assets at runtime.
+- Resolved issue where Base-64 encoding option would not work with newline option in PlayMaker SaveRaw action.
+
+3.3.2f5
+- Resolved issue where scripts were not overwritten by Asset Store importer, causing Easy Save to be unstable.
+
+3.3.2f4
+- Resolved issue where Save action for PlayMaker could return NullReferenceException due to using the wrong ES3.Save override.
+- Worked around IL2CPP bug where reflection would not find particular ES3Types on iOS
+- Resolved issue where trying to store an empty/unassigned PlayMaker object would throw a NulReferenceException.
+- Keys of a type which no longer exists in the project are now automatically removed
+- Abstract types used in an ES3Type will now work as intended
+
+3.3.2f3
+- Added GameObject variables to Auto Save
+- Resolved issue where Sprites would be loaded with the incorrect pivot.
+- Resolved issue where Stacks were loaded in reverse.
+- Added a 'quality' field to the ES3.SaveImage method to allow the quality to be specified when saving JPEGs.
+
+3.3.2f2
+- Added method which allows raw bytes to be uploaded via ES3Cloud.
+- Worked around issue where File IO was called on platforms which don't support it
+- Accounted for situations where Component should evaluate to null but doesn't
+- Updated PlayMaker actions to work around issue where global variables sometimes go missing
+- Objects with the NotEditable hideFlags can now be stored by reference
+- Worked around Unity bug where it fails to deserialize data when Prefab mode is open
+- Resolved issue where global 'Save GameObject Children' settings can take precedence over Auto Save settings
+- 'Enable Easy Save for Prefab' context menu item now works when multiple objects are selected.
+
+3.3.2f1
+- Resolved issue where Components on prefabs would sometimes not be added to the reference manager.
+- Resolved issue where reference ID was read unnecesserily, causing format exception.
+- Resolved issue where child prefabs would not be recognised by manager.
+
+3.3.1p12
+- Resolved case where certain references would not be added to manager.
+
+3.3.1f11
+- Fixed issue where using ES3.CacheFile with an encrypted file could fail.
+- Fixed issue where Directory.GetFiles cannot process a full path on certain configurations.
+- Accounted for case where HideFlags are changed during build process.
+- Added a timeout parameter to the ES3Cloud constructor.
+- ES3.Serialize and ES3.Deserialize now work with encryption and compression
+
 3.3.1f10
 - Full support for projects which use multiple scenes at once.
 - Added ES3.Encrypt and ES3.Decrypt methods.

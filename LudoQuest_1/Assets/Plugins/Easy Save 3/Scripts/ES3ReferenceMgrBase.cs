@@ -20,6 +20,7 @@ namespace ES3Internal
 #if UNITY_EDITOR
         private const int CollectDependenciesDepth = 5;
         protected static bool isEnteringPlayMode = false;
+        static readonly HideFlags[] invalidHideFlags = new HideFlags[] { HideFlags.DontSave, HideFlags.DontSaveInBuild, HideFlags.DontSaveInEditor, HideFlags.HideAndDontSave };
 #endif
 
         private static System.Random rng;
@@ -249,7 +250,8 @@ namespace ES3Internal
             lock (_lock)
             {
                 idRef[id] = obj;
-                refId[obj] = id;
+                if(obj != null)
+                    refId[obj] = id;
             }
             return id;
         }
@@ -298,9 +300,9 @@ namespace ES3Internal
             }
         }
 
-        public void RemoveNullValues()
+        public void RemoveNullOrInvalidValues()
         {
-            var nullKeys = idRef.Where(pair => pair.Value == null)
+            var nullKeys = idRef.Where(pair => pair.Value == null || !CanBeSaved(pair.Value))
                                 .Select(pair => pair.Key).ToList();
             foreach (var key in nullKeys)
                 idRef.Remove(key);
@@ -517,7 +519,7 @@ namespace ES3Internal
                 try
                 {
                     // If it's an array which contains UnityEngine.Objects, add them as dependencies.
-                    if (property.isArray)
+                    if (property.isArray && property.propertyType != UnityEditor.SerializedPropertyType.String)
                     {
                         for (int i = 0; i < property.arraySize; i++)
                         {
@@ -545,7 +547,7 @@ namespace ES3Internal
                     {
                         var propertyValue = property.objectReferenceValue;
                         if (propertyValue == null)
-                            break;
+                            continue;
 
                         // If it's a GameObject, use CollectDependencies so that Components are also added.
                         if (propertyValue.GetType() == typeof(GameObject))
@@ -576,18 +578,10 @@ namespace ES3Internal
             if (obj == null)
                 return true;
 
-            var type = obj.GetType();
-
-            // Check if any of the hide flags determine that it should not be saved.
-            if ((((obj.hideFlags & HideFlags.DontSave) == HideFlags.DontSave) ||
-                 ((obj.hideFlags & HideFlags.DontSaveInBuild) == HideFlags.DontSaveInBuild) ||
-                 ((obj.hideFlags & HideFlags.DontSaveInEditor) == HideFlags.DontSaveInEditor) ||
-                 ((obj.hideFlags & HideFlags.HideAndDontSave) == HideFlags.HideAndDontSave)))
-            {
-                // Meshes are marked with HideAndDontSave, but shouldn't be ignored.
-                if (type == typeof(Mesh) || type == typeof(Material))
-                    return true;
-            }
+            foreach (var flag in invalidHideFlags)
+                if ((obj.hideFlags & flag) != 0 && obj.hideFlags != HideFlags.HideInHierarchy && obj.hideFlags != HideFlags.HideInInspector && obj.hideFlags != HideFlags.NotEditable)
+                    if (!(obj is Mesh || obj is Material))
+                        return false;
 
             // Exclude the Easy Save 3 Manager, and all components attached to it.
             if (obj.name == "Easy Save 3 Manager")

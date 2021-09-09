@@ -13,12 +13,12 @@ public static class ES3
 	public enum Directory		{ PersistentDataPath, DataPath }
 	public enum EncryptionType 	{ None, AES };
     public enum CompressionType { None, Gzip};
-    public enum Format 			{ JSON, Binary_Alpha };
+    public enum Format 			{ JSON };
 	public enum ReferenceMode	{ ByRef, ByValue, ByRefAndValue};
 
     #region ES3.Save
 
-    /*// <summary>Saves the value to the default file with the given key.</summary>
+    // <summary>Saves the value to the default file with the given key.</summary>
     /// <param name="key">The key we want to use to identify our value in the file.</param>
     /// <param name="value">The value we want to save.</param>
     public static void Save(string key, object value)
@@ -51,12 +51,8 @@ public static class ES3
     /// <param name="settings">The settings we want to use to override the default settings.</param>
     public static void Save(string key, object value, ES3Settings settings)
     {
-        using (var writer = ES3Writer.Create(settings))
-        {
-            writer.Write<object>(key, value);
-            writer.Save();
-        }
-    }*/
+        Save<object>(key, value, settings);
+    }
 
     /// <summary>Saves the value to the default file with the given key.</summary>
     /// <param name="T">The type of the data that we want to save.</param>
@@ -275,13 +271,37 @@ public static class ES3
     /// <param name="settings">The settings we want to use to override the default settings.</param>
     public static void SaveImage(Texture2D texture, ES3Settings settings)
     {
+        SaveImage(texture, 75, settings);
+    }
+
+    /// <summary>Saves a Texture2D as a PNG or JPG, depending on the file extension used for the filePath.</summary>
+    /// <param name="texture">The Texture2D we want to save as a JPG or PNG.</param>
+    /// <param name="filePath">The relative or absolute path of the PNG or JPG file we want to create.</param>
+    public static void SaveImage(Texture2D texture, int quality, string imagePath)
+    {
+        SaveImage(texture, new ES3Settings(imagePath));
+    }
+
+    /// <summary>Saves a Texture2D as a PNG or JPG, depending on the file extension used for the filePath.</summary>
+    /// <param name="texture">The Texture2D we want to save as a JPG or PNG.</param>
+    /// <param name="filePath">The relative or absolute path of the PNG or JPG file we want to create.</param>
+    public static void SaveImage(Texture2D texture, int quality, string imagePath, ES3Settings settings)
+    {
+        SaveImage(texture, quality, new ES3Settings(imagePath, settings));
+    }
+
+    /// <summary>Saves a Texture2D as a PNG or JPG, depending on the file extension used for the filePath.</summary>
+    /// <param name="texture">The Texture2D we want to save as a JPG or PNG.</param>
+    /// <param name="settings">The settings we want to use to override the default settings.</param>
+    public static void SaveImage(Texture2D texture, int quality, ES3Settings settings)
+    {
         // Get the file extension to determine what format we want to save the image as.
         string extension = ES3IO.GetExtension(settings.path).ToLower();
         if (string.IsNullOrEmpty(extension))
             throw new System.ArgumentException("File path must have a file extension when using ES3.SaveImage.");
         byte[] bytes;
         if (extension == ".jpg" || extension == ".jpeg")
-            bytes = texture.EncodeToJPG();
+            bytes = texture.EncodeToJPG(quality);
         else if (extension == ".png")
             bytes = texture.EncodeToPNG();
         else
@@ -519,9 +539,9 @@ public static class ES3
     /// <param name="key">The key which identifies the value we want to load.</param>
     /// <param name="defaultValue">The value we want to return if the file or key does not exist.</param>
     /// <param name="filePath">The relative or absolute path of the file we want to load from.</param>
-    public static string LoadString(string key, string defaultValue, string filePath="")
+    public static string LoadString(string key, string defaultValue, string filePath=null)
     {
-        return Load<string>(key, defaultValue, new ES3Settings(filePath));
+        return Load<string>(key, filePath, defaultValue, new ES3Settings(filePath));
     }
 
     #endregion
@@ -558,6 +578,9 @@ public static class ES3
 
         using (var stream = ES3Stream.CreateStream(settings, ES3FileMode.Read))
         {
+            if (stream == null)
+                throw new System.IO.FileNotFoundException("File "+settings.path+" could not be found");
+
             if (stream.GetType() == typeof(System.IO.Compression.GZipStream))
             {
                 var gZipStream = (System.IO.Compression.GZipStream)stream;
@@ -702,7 +725,7 @@ public static class ES3
                 // Wait for it to load.
             }
 
-            if (www.isNetworkError)
+            if (ES3WebClass.IsNetworkError(www))
                 throw new System.Exception(www.error);
             else
                 return DownloadHandlerAudioClip.GetContent(www);
@@ -744,12 +767,19 @@ public static class ES3
     {
         if (settings == null) settings = new ES3Settings();
 
-        using (var stream = new System.IO.MemoryStream())
+        using (var ms = new System.IO.MemoryStream())
         {
-            using (var baseWriter = ES3Writer.Create(stream, settings, false, false))
-                baseWriter.Write(value, ES3TypeMgr.GetOrCreateES3Type(typeof(T)), settings.referenceMode);
+            using (var stream = ES3Stream.CreateStream(ms, settings, ES3FileMode.Write))
+            {
+                using (var baseWriter = ES3Writer.Create(stream, settings, false, false))
+                {
+                    // If T is object, use the value to get it's type. Otherwise, use T so that it works with inheritence.
+                    var type = typeof(T) != typeof(object) ? typeof(T) : (value == null ? typeof(T) : value.GetType());
+                    baseWriter.Write(value, ES3TypeMgr.GetOrCreateES3Type(type), settings.referenceMode);
+                }
 
-            return stream.ToArray();
+                return ms.ToArray();
+            }
         }
     }
 
@@ -764,7 +794,8 @@ public static class ES3
             settings = new ES3Settings();
 
         using (var ms = new System.IO.MemoryStream(bytes, false))
-            using (var reader = ES3Reader.Create(ms, settings, false))
+            using (var stream = ES3Stream.CreateStream(ms, settings, ES3FileMode.Read))
+                using (var reader = ES3Reader.Create(stream, settings, false))
                     return reader.Read<object>(type);
     }
 
@@ -1246,7 +1277,15 @@ public static class ES3
     /// <summary>Gets an array of all of the file names in a directory.</summary>
     public static string[] GetFiles()
     {
-        return GetFiles(new ES3Settings());
+        var settings = new ES3Settings();
+        if (settings.location == ES3.Location.File)
+        {
+            if (settings.directory == ES3.Directory.PersistentDataPath)
+                settings.path = Application.persistentDataPath;
+            else 
+                settings.path = Application.dataPath;
+        }
+        return GetFiles(settings);
     }
 
     /// <summary>Gets an array of all of the file names in a directory.</summary>
@@ -1434,7 +1473,7 @@ public static class ES3
         ES3File.Store(settings);
     }
 
-    /// <summary>Stores the default cached file to persistent storage.</summary>
+    /// <summary>Loads the default file in persistent storage into the cache.</summary>
 	/// <remarks>A backup is created by copying the file and giving it a .bak extension. 
 	/// If a backup already exists it will be overwritten, so you will need to ensure that the old backup will not be required before calling this method.</remarks>
 	public static void CacheFile()
@@ -1442,7 +1481,7 @@ public static class ES3
         CacheFile(new ES3Settings());
     }
 
-    /// <summary>Stores a cached file to persistent storage.</summary>
+    /// <summary>Loads a file from persistent storage into the cache.</summary>
     /// <param name="filePath">The filename or path of the file we want to store the cached file to.</param>
     public static void CacheFile(string filePath)
     {

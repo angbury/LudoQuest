@@ -17,11 +17,6 @@ public class ES3Spreadsheet
 	private const string ESCAPED_QUOTE = "\"\"";
 	private static char[] CHARS_TO_ESCAPE = { ',', '"', '\n', ' ' };
 
-    public ES3Spreadsheet()
-    {
-        ES3Debug.Log("ES3Spreadsheet created");
-    }
-
 	public int ColumnCount
 	{
 		get{ return cols; }
@@ -34,8 +29,6 @@ public class ES3Spreadsheet
 
 	public void SetCell<T>(int col, int row, T value)
 	{
-        ES3Debug.Log("Setting cell (" + col + "," + row + ") to value " + value);
-
         // If we're writing a string, add it without formatting.
         if (value.GetType() == typeof(string))
 		{
@@ -43,14 +36,8 @@ public class ES3Spreadsheet
 			return;
 		}
 
-		var settings = new ES3Settings ();
-		using(var ms = new MemoryStream())
-		{
-			using (var jsonWriter = new ES3JSONWriter (ms, settings, false, false))
-				jsonWriter.Write(value, ES3.ReferenceMode.ByValue);
-
-			SetCellString(col, row, settings.encoding.GetString(ms.ToArray()));
-		}
+        var settings = new ES3Settings();
+        SetCellString(col, row, settings.encoding.GetString(ES3.Serialize(value)));
 
 		// Expand the spreadsheet if necessary.
 		if(col >= cols)
@@ -89,29 +76,17 @@ public class ES3Spreadsheet
             throw new System.IndexOutOfRangeException("Cell (" + col + ", " + row + ") is out of bounds of spreadsheet (" + cols + ", " + rows + ").");
 
         if (!cells.TryGetValue(new Index(col, row), out value) || string.IsNullOrEmpty(value))
-        {
-            ES3Debug.Log("Getting cell (" + col + "," + row + ") is empty, so default value is being returned");
             return null;
-        }
 
         // If we're loading a string, simply return the string value.
         if (type == typeof(string))
         {
             var str = (object)value;
-            ES3Debug.Log("Getting cell (" + col + "," + row + ") with value " + str);
             return str;
         }
 
         var settings = new ES3Settings();
-        using (var ms = new MemoryStream(settings.encoding.GetBytes(value)))
-        {
-            using (var jsonReader = new ES3JSONReader(ms, settings, false))
-            {
-                var obj = ES3TypeMgr.GetOrCreateES3Type(type, true).Read<object>(jsonReader);
-                ES3Debug.Log("Getting cell (" + col + "," + row + ") with value " + obj);
-                return obj;
-            }
-        }
+        return ES3.Deserialize(ES3TypeMgr.GetOrCreateES3Type(type, true), settings.encoding.GetBytes(value), settings);
     }
 
     public void Load(string filePath)
@@ -148,8 +123,6 @@ public class ES3Spreadsheet
 			string value = "";
 			int col = 0;
 			int row = 0;
-
-            ES3Debug.Log("Reading spreadsheet "+settings.path+" from "+settings.location);
 
 			// Read until the end of the stream.
 			while(true)
@@ -192,7 +165,6 @@ public class ES3Spreadsheet
 					value += c;
 			}
 		}
-        ES3Debug.Log("Finished reading spreadsheet " + settings.path + " from " + settings.location);
     }
 
 	public void Save(string filePath)
@@ -238,8 +210,6 @@ public class ES3Spreadsheet
 				{
 					if(col != 0)
 						writer.Write(COMMA_CHAR);
-
-                    ES3Debug.Log("Writing cell (" + col + "," + row + ") to file with value "+ array[col, row]);
 
                     writer.Write( Escape(array [col, row]) );
 				}

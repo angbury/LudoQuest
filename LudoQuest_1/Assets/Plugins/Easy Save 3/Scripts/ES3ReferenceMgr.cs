@@ -25,7 +25,8 @@ public class ES3ReferenceMgr : ES3ReferenceMgrBase
         // This will get the dependencies for all GameObjects and Components from the active scene.
         AddDependencies(this.gameObject.scene.GetRootGameObjects());
         AddPrefabsToManager();
-        RemoveNullValues();
+        RemoveNullOrInvalidValues();
+
         ES3ReferenceMgrBase.isEnteringPlayMode = false;
     }
 

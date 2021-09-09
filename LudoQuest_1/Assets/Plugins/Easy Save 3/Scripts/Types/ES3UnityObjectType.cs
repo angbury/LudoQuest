@@ -89,8 +89,11 @@ namespace ES3Types
 				else
 				{
 					reader.overridePropertiesName = propertyName;
-					if(instance == null)
-						return ReadUnityObject<T>(reader);
+                    if (instance == null)
+                    {
+                        instance = (UnityEngine.Object)ReadUnityObject<T>(reader);
+                        refMgr.Add(instance, id);
+                    }
 					break;
 				}
 			}

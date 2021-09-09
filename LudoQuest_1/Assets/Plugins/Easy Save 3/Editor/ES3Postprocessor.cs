@@ -36,7 +36,7 @@ public class ES3Postprocessor : UnityEditor.AssetModificationProcessor
     static ES3Postprocessor()
     {
         // Open the Easy Save 3 window the first time ES3 is installed.
-        ES3Editor.ES3Window.OpenEditorWindowOnStart();
+        //ES3Editor.ES3Window.OpenEditorWindowOnStart();
 
 #if UNITY_2017_2_OR_NEWER
         EditorApplication.playModeStateChanged += PlayModeStateChanged;
@@ -65,9 +65,7 @@ public class ES3Postprocessor : UnityEditor.AssetModificationProcessor
     {
         // Add all GameObjects and Components to the reference manager before we enter play mode.
         if (state == PlayModeStateChange.ExitingEditMode && ES3Settings.defaultSettingsScriptableObject.autoUpdateReferences)
-        {
             RefreshReferences(true);
-        }
     }
 #else
     public static void PlaymodeStateChanged()
@@ -82,7 +80,7 @@ public class ES3Postprocessor : UnityEditor.AssetModificationProcessor
     public static string[] OnWillSaveAssets(string[] paths)
     {
         // Don't refresh references when the application is playing.
-        if (!Application.isPlaying && ES3Settings.defaultSettingsScriptableObject.autoUpdateReferences)
+        if (!EditorApplication.isUpdating && !Application.isPlaying && ES3Settings.defaultSettingsScriptableObject.autoUpdateReferences)
             RefreshReferences();
         return paths;
     }
@@ -93,8 +91,11 @@ public class ES3Postprocessor : UnityEditor.AssetModificationProcessor
     private static void UpdateAssembliesContainingES3Types()
     {
 #if UNITY_2017_3_OR_NEWER
+
         var assemblies = UnityEditor.Compilation.CompilationPipeline.GetAssemblies();
         var defaults = ES3Settings.defaultSettingsScriptableObject;
+        var currentAssemblyNames = defaults.settings.assemblyNames;
+
         var assemblyNames = new List<string>();
 
         foreach (var assembly in assemblies)
@@ -110,8 +111,15 @@ public class ES3Postprocessor : UnityEditor.AssetModificationProcessor
             catch { }
         }
 
-        defaults.settings.assemblyNames = assemblyNames.ToArray();
-        EditorUtility.SetDirty(defaults);
+        // Only update if the list has changed.
+        for (int i = 0; i < currentAssemblyNames.Length; i++)
+        {
+            if (currentAssemblyNames[i] != assemblyNames[i])
+            {
+                defaults.settings.assemblyNames = assemblyNames.ToArray();
+                EditorUtility.SetDirty(defaults);
+            }
+        }
 #endif
     }
 
